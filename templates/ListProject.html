@@ -1,0 +1,16 @@
+<h1>Projects</h1>
+<ul>
+<div>
+{% for project in projectlist %}
+    <div>
+        <li><h3>{{ project.project_name }}</h3></li>
+        <button><a href="{% url 'projectdetail' project.id %}">Project Detail</a></button>
+        <button><a href="{% url 'projectupdate' project.id %}">Project Update</a></button>
+        <button><a href="{% url 'projectdelete' project.id %}">Project Delete</a></button>  
+    </div>
+{% empty %}
+    <li>No projects yet.</li>
+{% endfor %}
+    <button style="margin-top: 20px;"><a href="{% url 'createproject' %}">Create New Project</a></button> 
+</div>
+</ul>
